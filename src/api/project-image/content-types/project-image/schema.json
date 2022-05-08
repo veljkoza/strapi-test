@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project-image",
     "pluralName": "project-images",
-    "displayName": "ProjectImage"
+    "displayName": "ProjectImage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,17 +13,34 @@
   "pluginOptions": {},
   "attributes": {
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "colSpan": {
-      "type": "integer"
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "max": 12
     },
     "colStart": {
       "type": "integer"
     },
     "fullHeight": {
       "type": "boolean",
-      "default": true
+      "default": false
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "parallax_imgs"
+    },
+    "isText": {
+      "type": "boolean",
+      "default": false
+    },
+    "html": {
+      "type": "richtext"
     }
   }
 }

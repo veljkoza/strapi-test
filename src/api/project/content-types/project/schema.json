@@ -15,9 +15,6 @@
     "title": {
       "type": "string"
     },
-    "slug": {
-      "type": "string"
-    },
     "city": {
       "type": "string"
     },
@@ -30,10 +27,21 @@
     "image": {
       "type": "string"
     },
-    "parallaxImgs": {
+    "parallax_imgs": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project-image.project-image"
+      "relation": "manyToMany",
+      "target": "api::project-image.project-image",
+      "inversedBy": "projects"
+    },
+    "description": {
+      "type": "text"
+    },
+    "html": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
